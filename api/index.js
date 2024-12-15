@@ -5,11 +5,11 @@ const app = express();
 
 // CORS 설정: GitHub Pages 출처만 허용
 app.use(cors({
-  origin: 'https://arrrbang.github.io', // GitHub Pages의 출처
-  methods: ['GET', 'POST'],             // 허용할 HTTP 메서드
-  allowedHeaders: ['Content-Type', 'Authorization'], // 허용할 헤더
-  credentials: true                     // 인증 쿠키 허용 (필요한 경우)
+  origin: 'https://arrrbang.github.io', // GitHub Pages 도메인
+  methods: ['GET', 'POST'],            // 허용할 HTTP 메서드
+  allowedHeaders: ['Content-Type'],    // 허용할 헤더
 }));
+
 
 app.use(express.json());
 
