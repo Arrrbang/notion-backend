@@ -3,12 +3,17 @@ const cors = require('cors');
 
 const app = express();
 
-// CORS 설정: GitHub Pages 출처만 허용
-app.use(cors({
-  origin: 'https://arrrbang.github.io', // GitHub Pages 도메인
-  methods: ['GET', 'POST'],            // 허용할 HTTP 메서드
-  allowedHeaders: ['Content-Type'],    // 허용할 헤더
+// 기존 CORS 설정을 동적 설정으로 변경
+app.use(cors((req, callback) => {
+  const whitelist = ['https://arrrbang.github.io']; // 허용할 출처 리스트
+  const origin = req.header('Origin');
+  if (whitelist.includes(origin)) {
+    callback(null, { origin: true }); // 요청 출처 허용
+  } else {
+    callback(null, { origin: false }); // 허용되지 않은 출처
+  }
 }));
+
 
 
 app.use(express.json());
