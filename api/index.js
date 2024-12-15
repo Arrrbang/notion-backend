@@ -42,6 +42,7 @@ app.get('/notion', async (req, res) => {
       id: page.id,
       name: page.properties['이름'].title[0]?.plain_text || 'No Name',
       value: page.properties['20DRY']?.number || null,
+      value40HC: page.properties['40HC']?.number || null,
     }));
 
     res.status(200).json({ success: true, data: results });
