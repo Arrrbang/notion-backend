@@ -4,7 +4,9 @@ const cors = require('cors'); // CORS 설정
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: '*' // 모든 도메인 허용
+}));
 app.use(express.json());
 
 // Notion API 환경 변수
