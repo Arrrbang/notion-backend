@@ -41,7 +41,7 @@ app.get('/notion', async (req, res) => {
     const results = response.data.results.map((page) => ({
       id: page.id,
       name: page.properties['이름'].title[0]?.plain_text || 'No Name',
-      value: page.properties['20DRY']?.number || null,
+      value20DRY: page.properties['20DRY']?.number || null,
       value40HC: page.properties['40HC']?.number || null,
     }));
 
