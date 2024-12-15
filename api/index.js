@@ -21,6 +21,13 @@ export default async (req, res) => {
             }
         );
 
+        res.status(200).json({ success: true, data: response.data });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+};
+
+
         const results = response.data.results.map(page => ({
             name: page.properties["이름"].title[0]?.plain_text || "No Name",
             value: page.properties["20DRY"]?.number || null,
