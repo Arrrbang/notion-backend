@@ -49,3 +49,7 @@ app.get('/notion', async (req, res) => {
     console.error('Error fetching Notion data:', error.message);
     res.status(500).json({ success: false, message: error.message });
   }
+});
+
+// 서버리스 함수 내보내기
+module.exports = app;
