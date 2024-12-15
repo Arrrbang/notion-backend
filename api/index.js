@@ -1,7 +1,6 @@
 const express = require('express');
 const axios = require('axios');
 const cors = require('cors'); // CORS 설정
-app.use(cors()); // 모든 출처에서의 요청 허용
 const app = express();
 
 // Middleware
